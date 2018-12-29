@@ -1,15 +1,15 @@
 workflow "Linting & Testing" {
   on = "push"
-  resolves = ["GitHub Action for npm-1"]
+  resolves = ["Run Prettier"]
 }
 
-action "GitHub Action for npm" {
+action "Install dependencies" {
   uses = "actions/npm@e7aaefe"
   args = "install"
 }
 
-action "GitHub Action for npm-1" {
+action "Run Prettier" {
   uses = "actions/npm@e7aaefe"
-  needs = ["GitHub Action for npm"]
   args = "format"
+  needs = ["Install dependencies"]
 }
