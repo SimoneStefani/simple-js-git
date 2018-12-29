@@ -1,6 +1,6 @@
 workflow "Linting & Testing" {
   on = "push"
-  resolves = ["Run Prettier"]
+  resolves = ["Run tests"]
 }
 
 action "Install dependencies" {
@@ -10,6 +10,12 @@ action "Install dependencies" {
 
 action "Run Prettier" {
   uses = "actions/npm@e7aaefe"
-  args = "format"
+  args = "run format"
   needs = ["Install dependencies"]
+}
+
+action "Run tests" {
+  uses = "actions/npm@e7aaefe"
+  needs = ["Run Prettier"]
+  args = "run test"
 }
