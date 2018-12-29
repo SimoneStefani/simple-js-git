@@ -1,8 +1,8 @@
-const Git = require('../git');
+const Git = require("../src/git");
 
-test('Git.commit() test', () => {
+test("Git.commit() test", () => {
   let repo = new Git("test");
-  
+
   let firstCommit = repo.commit("Initial commit");
 
   expect(firstCommit.id).toBe(0);
@@ -16,9 +16,9 @@ test('Git.commit() test', () => {
   expect(secondCommit.message).toBe("Second commit");
 });
 
-test('Git.log() test', () => {
+test("Git.log() test", () => {
   let repo = new Git("test");
-  
+
   repo.commit("Initial commit");
   repo.commit("Change 1");
   let log = repo.log();
@@ -26,4 +26,20 @@ test('Git.log() test', () => {
   expect(log.length).toBe(2);
   expect(!!log[0] && log[0].id).toBe(1);
   expect(!!log[1] && log[1].id).toBe(0);
+});
+
+test("Git.checkout() test", () => {
+  let repo = new Git("test");
+
+  repo.commit("Initial commit");
+  expect(repo.HEAD.name).toBe("master");
+
+  repo.checkout("testing");
+  expect(repo.HEAD.name).toBe("testing");
+
+  repo.checkout("master");
+  expect(repo.HEAD.name).toBe("master");
+
+  repo.checkout("testing");
+  expect(repo.HEAD.name).toBe("testing");
 });
