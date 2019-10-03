@@ -1,0 +1,20 @@
+name: Audit & Test
+
+on: [push]
+
+jobs:
+  test:
+    name: Audit & Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "10.x"
+      - name: Install NPM dependencies
+        run: yarn install
+      - name: Audit NPM dependencies
+        run: yarn audit
+      - name: Run tests
+        run: yarn test
