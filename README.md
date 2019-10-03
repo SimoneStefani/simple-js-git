@@ -1,6 +1,7 @@
 # Simple JS Git
 
 A simple conceptual version of Git implemented in JavaScript (ES6)
+
 [![](https://github.com/SimoneStefani/simple-js-git/workflows/Audit%20%26%20Test/badge.svg)]()
 
 This tiny implementation handles the concepts of _commits_, _logs_ and _branches_. It uses ES6 JavaScript classes to represent different entities.
