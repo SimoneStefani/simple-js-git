@@ -13,8 +13,8 @@ jobs:
         with:
           node-version: "10.x"
       - name: Install NPM dependencies
-        run: yarn install
+        run: npm ci
       - name: Audit NPM dependencies
-        run: yarn audit
+        run: npm audit
       - name: Run tests
-        run: yarn test
+        run: npm run test
