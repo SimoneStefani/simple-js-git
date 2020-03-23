@@ -1,4 +1,4 @@
-[![](https://github.com/SimoneStefani/simple-js-git/workflows/Audit%20%26%20Test/badge.svg)]()
+![Audit & Test](https://github.com/SimoneStefani/simple-js-git/workflows/Audit%20&%20Test/badge.svg)
 
 # Simple JS Git
 
