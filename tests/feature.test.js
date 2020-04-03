@@ -24,7 +24,7 @@ test("3 commits multibranch test", () => {
  *
  * @param {Array} history
  */
-const historyToIdMapper = history => {
-  let ids = history.map(commit => commit.id);
+const historyToIdMapper = (history) => {
+  let ids = history.map((commit) => commit.id);
   return ids.join("-");
 };
